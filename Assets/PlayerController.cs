@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
+using UnityEngine.UIElements.Experimental;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool _jump = false;
     [SerializeField] private float _jumpHeight = 8f;
     [SerializeField] private float _jumpSpeed = 10f;
+    bool isMoving = false;
+    public Animator animator;
+    Vector3 heading;
 
 
     private void Start()
@@ -26,13 +30,23 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-       if(Input.GetButtonDown("Jump") && !_jump)
+        animator.SetBool("isMoving", isMoving); 
+       
+        if(Input.GetButtonDown("Jump") && !_jump)
        {
             StartCoroutine(Jump());    
        }
         else
         {
-            Move();
+            if (!Input.anyKey)
+            {
+                isMoving = false;
+            }
+            else
+            {
+                
+                Move();
+            }
         }
     }
 
@@ -43,10 +57,12 @@ public class PlayerController : MonoBehaviour
     {
         //_rb.MovePosition(transform.position + transform.forward * _speed * Time.deltaTime);
         //Vector3 direction = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        isMoving = true;
+       
         Vector3 rightMovement = _right * _speed * Time.deltaTime * Input.GetAxis("Horizontal");
         Vector3 upMovement = _forward * _speed * Time.deltaTime * Input.GetAxis("Vertical");
 
-        Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
+        heading = Vector3.Normalize(rightMovement + upMovement);
         transform.forward = heading;
         transform.position += rightMovement;
         transform.position += upMovement;
