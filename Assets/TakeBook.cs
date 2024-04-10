@@ -16,6 +16,9 @@ public class TakeBook : MonoBehaviour, IPointerClickHandler
         isTaken = true;
     }
 
+    
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +28,10 @@ public class TakeBook : MonoBehaviour, IPointerClickHandler
     // Update is called once per frame
     void Update()
     {
+        if(isTaken)
+        {
+            isTaken = false;
+        }
         animator.SetBool("isTaken", isTaken);
     }
 }
