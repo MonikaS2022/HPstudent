@@ -38,14 +38,15 @@ public class PlayerController : MonoBehaviour
        }
         else
         {
-            if (!Input.anyKey)
+            //if (!Input.anyKey)
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
             {
-                isMoving = false;
+               
+                Move();
             }
             else
             {
-                
-                Move();
+                isMoving = false;
             }
         }
     }
