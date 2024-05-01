@@ -4,6 +4,8 @@ using Unity.VisualScripting;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using UnityEngine.UIElements.Experimental;
+using UnityEngine.AI;
+using static UnityEngine.GraphicsBuffer;
 
 public class PlayerController : MonoBehaviour
 {
@@ -18,48 +20,101 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     Vector3 heading;
 
+    MouseBehaviour mouseBehaviour;
+    float speed = 2f;
+    NavMeshAgent navMeshAgent;
+    Vector3 destination;
+    bool canMove;
+
+    float distanceToDestination;
 
     private void Start()
     {
+        mouseBehaviour = new MouseBehaviour();
+        navMeshAgent = GetComponent<NavMeshAgent>();
         _forward = Camera.main.transform.forward;
         _forward.y = 0f;
         _forward = Vector3.Normalize(_forward);
-        _right = Quaternion.Euler(new Vector3(0, 90,0)) * _forward;
+        _right = Quaternion.Euler(new Vector3(0, 90, 0)) * _forward;
         _rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
-        animator.SetBool("isMoving", isMoving); 
-       
-        if(Input.GetButtonDown("Jump") && !_jump)
-       {
-            StartCoroutine(Jump());    
-       }
+
+
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            destination = mouseBehaviour.GetMouseInWorld();
+            NavMeshHit hit;
+
+            if (NavMesh.SamplePosition(destination, out hit, 1.0f, NavMesh.AllAreas))
+                canMove = true;
+        }
+        else
+        {
+            //isMoving = false;
+        }
+
+        if (canMove)
+            ClickMove();
+
+        distanceToDestination = Vector3.Distance(transform.position, destination);
+
+        if (distanceToDestination < 1f)
+        {
+            isMoving = false;
+        }
+
+
+        if (Input.GetButtonDown("Jump") && !_jump)
+        {
+            StartCoroutine(Jump());
+        }
         else
         {
             //if (!Input.anyKey)
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
             {
-               
+
                 Move();
             }
             else
             {
-                isMoving = false;
+                //isMoving = false;
             }
         }
+        animator.SetBool("isMoving", isMoving);
     }
 
- 
 
+    void ClickMove()
+    {
+        isMoving = true;
+        if (mouseBehaviour.GetMouseInWorld() != Vector3.zero)
+        {
+            var dir = (destination - transform.position).normalized;
+            var velocity = speed * Time.deltaTime * dir;
+
+            navMeshAgent.SetDestination(destination);
+            
+        }
+        canMove = false;
+    }
+
+    //public void DrawGizmo()
+    //{
+    //    Gizmos.DrawWireSphere(destination, 0.5f);
+    //    Gizmos.DrawLine(transform.position, destination);
+    //}
 
     void Move()
     {
         //_rb.MovePosition(transform.position + transform.forward * _speed * Time.deltaTime);
         //Vector3 direction = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         isMoving = true;
-       
+
         Vector3 rightMovement = _right * _speed * Time.deltaTime * Input.GetAxis("Horizontal");
         Vector3 upMovement = _forward * _speed * Time.deltaTime * Input.GetAxis("Vertical");
 
@@ -67,7 +122,7 @@ public class PlayerController : MonoBehaviour
         transform.forward = heading;
         transform.position += rightMovement;
         transform.position += upMovement;
-        
+
     }
 
     IEnumerator Jump()
@@ -77,9 +132,9 @@ public class PlayerController : MonoBehaviour
         //_rb.useGravity = false;
 
         _jump = true;
-       
 
-        
+
+
         _rb.AddForce(Vector3.up * _jumpHeight, ForceMode.Impulse);
         yield return null;
 
@@ -99,7 +154,7 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
 
-       // _rb.useGravity = true;
+        // _rb.useGravity = true;
         _jump = false;
         yield return null;
     }
