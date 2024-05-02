@@ -25,8 +25,8 @@ public class MouseBehaviour : MonoBehaviour
     }
     private static GameObject GetMouseOver()
     {
-        var mousePos = Input.mousePosition;
-        var mouseRay = Camera.main.ScreenPointToRay(mousePos);
+        Vector3 mousePos = Input.mousePosition;
+        Ray mouseRay = Camera.main.ScreenPointToRay(mousePos);
         if (Physics.Raycast(mouseRay, out RaycastHit hit, float.MaxValue))
         {
             return hit.transform.gameObject;

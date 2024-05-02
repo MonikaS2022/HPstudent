@@ -43,7 +43,8 @@ public class DayNighCycle : MonoBehaviour
     {
         _currentMarkIndex = -1;
         _CycleMarks();
-        
+        _light.color = Color.white;
+        _light.intensity = 0;
     }
 
     // Update is called once per frame
@@ -65,10 +66,29 @@ public class DayNighCycle : MonoBehaviour
         }
        
 
-       
-        
-        _indexText.text = "IndexText " + _currentMarkIndex.ToString();
-        _timeText.text = "TimeText: " + _currentCyckelTime.ToString();
+       switch(_currentMarkIndex)
+        {
+            case 0:
+                _indexText.text = "Night";
+                break;
+            case 1:
+                _indexText.text = "Morning";
+                break;
+            case 2:
+                _indexText.text = "Day";
+                break;
+            case 3:
+                _indexText.text = "Evening";
+                break;
+            default:
+                _indexText.text = "none";
+                break;
+
+
+        }
+
+                    
+        _timeText.text = "Hours: " + _currentCyckelTime.ToString("0");
         _days.text = "Day: " + days.ToString();
 
     }
