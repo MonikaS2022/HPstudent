@@ -4,7 +4,16 @@ using UnityEngine;
 
 public class Survival : MonoBehaviour
 {
+    // Did it like this because singletons are only supposed to be one instance so i did it without polymorphism.
+    // I did it with the child classes but that did not work out properly.
+    // I think for this project it is okey because we can use the singleton design pattern.
 
+
+    // Different things to mange. Can be adjusted in the editor!
+   
+
+    // To call this singleton class from another script you just go Survival.Instance then what you want
+    // For example Survival.Instance.CurrentKnowledge to ge the current knowledge!
     [Header("Hunger")]
     [SerializeField] protected float depletionRateHunger = 1f;
     [SerializeField] protected float currentHunger = 100;
@@ -35,8 +44,6 @@ public class Survival : MonoBehaviour
         get { return currentKnowledge; }
     }
 
-    public enum survivalType { hunger, pleasure, knowledge}
-
     private void Awake()
     {
         // If there is an instance, and it's not me, delete myself.
@@ -54,6 +61,9 @@ public class Survival : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        // Slowly ticking each down to zero and stopts when it gets to just below zero.
+
         if (currentPleasure > 0)
         {
             currentPleasure -= depletionRatePleasure * Time.deltaTime;
