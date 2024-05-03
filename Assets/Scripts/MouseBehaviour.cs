@@ -42,7 +42,7 @@ public class MouseBehaviour : MonoBehaviour
         if (groundPlane.Raycast(mouseRay, out float distance))
         {
             var point = mouseRay.GetPoint(distance);
-            Debug.Log(point);
+            //Debug.Log(point);
             return point;
         }
         return Vector3.zero;

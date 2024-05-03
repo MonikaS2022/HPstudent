@@ -14,8 +14,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 _right;
     private Vector3 _forward;
     [SerializeField] private bool _jump = false;
-    [SerializeField] private float _jumpHeight = 8f;
-    [SerializeField] private float _jumpSpeed = 10f;
+
     bool isMoving = false;
     public Animator animator;
     Vector3 heading;
@@ -70,7 +69,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && !_jump)
         {
-            StartCoroutine(Jump());
+            
         }
         else
         {
@@ -125,37 +124,5 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    IEnumerator Jump()
-    {
-        float originalHeight = transform.position.y;
-        //float maxHeight = originalHeight + _jumpHeight;
-        //_rb.useGravity = false;
-
-        _jump = true;
-
-
-
-        _rb.AddForce(Vector3.up * _jumpHeight, ForceMode.Impulse);
-        yield return null;
-
-        /*
-        while(transform.position.y < maxHeight)
-        { 
-            transform.position += transform.up * Time.deltaTime * _jumpSpeed;
-            yield return null;
-        
-        }
-        */
-        //_rb.useGravity = true;
-
-        while (transform.position.y > originalHeight)
-        {
-            //transform.position -= transform.up * Time.deltaTime * _jumpSpeed;
-            yield return null;
-        }
-
-        // _rb.useGravity = true;
-        _jump = false;
-        yield return null;
-    }
+    
 }
