@@ -8,7 +8,7 @@ public class MouseInteraction : MonoBehaviour
     private void Update()
     {
         
-        if(Input.GetMouseButtonUp(0))
+        if(Input.GetMouseButtonUp(1))
         {
             CastRay();
         }
