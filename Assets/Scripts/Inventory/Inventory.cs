@@ -10,7 +10,7 @@ public class Inventory : MonoBehaviour
 {
   public static Inventory Instance { get; private set; }
 
-    public int maxInventories = 2;
+    public int maxInventories = 5;
     public PickableObject[] inventory;
     public static Action OnInventoryChanged;
     public static void RaiseOnInventoryChanged() => OnInventoryChanged?.Invoke();

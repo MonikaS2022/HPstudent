@@ -50,7 +50,7 @@ public class DayNighCycle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _currentCyckelTime = (_currentCyckelTime + Time.deltaTime) % _cycleLenght;
+        _currentCyckelTime = (_currentCyckelTime + Time.deltaTime*0.5f) % _cycleLenght;
         if(Mathf.Abs(_currentCyckelTime - _nextMarkTime) < _TIME_CHECK_EPSILON)
         {
             DayAndNightMark next = _marks[_nextMarkIndex];
@@ -88,7 +88,7 @@ public class DayNighCycle : MonoBehaviour
         }
 
                     
-        _timeText.text = "Hours: " + _currentCyckelTime.ToString("0");
+        _timeText.text = _currentCyckelTime.ToString("0") + " o'clock";
         _days.text = "Day: " + days.ToString();
 
     }

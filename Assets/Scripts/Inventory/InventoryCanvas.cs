@@ -9,6 +9,7 @@ public class InventoryCanvas : MonoBehaviour
 
     public TextMeshProUGUI placeHolder1;
     public TextMeshProUGUI placeHolder2;
+    public TextMeshProUGUI amount;
     public Image img1;
     public Image img2;
 
@@ -25,6 +26,8 @@ public class InventoryCanvas : MonoBehaviour
     {
         placeHolder1.text = "nothing yet";
         placeHolder2.text = "nothing yet";
+        amount.text = Inventory.Instance.maxInventories.ToString();
+        Debug.Log(Inventory.Instance.maxInventories.ToString());
     }
 
 
@@ -45,6 +48,7 @@ public class InventoryCanvas : MonoBehaviour
             img2.sprite = Inventory.Instance.inventory[1].img;
             img2.enabled = true;
         }
+        
         
     }
 }

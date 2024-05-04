@@ -9,5 +9,6 @@ public class DestroyableObject : MonoBehaviour, IInteractable
     public void Interact()
     {
         Debug.Log("you distroyed me: " + objectName);
+        this.gameObject.SetActive(false);
     }
 }
