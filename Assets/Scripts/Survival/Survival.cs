@@ -30,6 +30,8 @@ public class Survival : MonoBehaviour
     [SerializeField] protected float maxKnowledge = 100;
     public static Survival Instance { get; private set; }
 
+    public bool inMinigame = false;
+
     public float CurrentPleasure
     {
         get { return currentPleasure; }
