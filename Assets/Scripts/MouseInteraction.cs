@@ -5,6 +5,8 @@ using UnityEngine.Scripting;
 
 public class MouseInteraction : MonoBehaviour
 {
+
+    CameraRotation camera;
     private void Update()
     {
         
