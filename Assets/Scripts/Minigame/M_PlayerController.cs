@@ -38,7 +38,7 @@ public class M_PlayerController : MonoBehaviour
             return;
         }
         GatherInput();
-        //Animation();
+        Animation();
         Look();
 
         if (Input.GetKeyDown(KeyCode.Space) && canDash)
