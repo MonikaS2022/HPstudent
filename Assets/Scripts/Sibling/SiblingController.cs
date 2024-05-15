@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class SiblingController : MonoBehaviour
 {
-    [SerializeField] BaseState currentState;
+    BaseState currentState;
 
     [HideInInspector] public MoveState moveState;
     [HideInInspector] public ActionState actionState;

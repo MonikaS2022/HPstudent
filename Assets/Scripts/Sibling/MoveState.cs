@@ -1,57 +1,79 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using static UnityEngine.GraphicsBuffer;
 
 public class MoveState : BaseState
 {
-    [SerializeField] Vector3 _target;
+    //[SerializeField] Vector3 _target;
+    [SerializeField] Transform[] waypoints;
+    int currentIndex = 0;
 
-    public MoveState(SiblingController siblingController) : base ("Move", siblingController)
+    NavMeshAgent navMeshAgent;
+
+    [SerializeField] float waitTime = 1f;
+    [SerializeField] float waitCounter = 0f;
+    [SerializeField] bool waiting;
+
+    [SerializeField] int speed;
+
+    ActionState action;
+
+    public MoveState(SiblingController siblingController) : base("Move", siblingController)
     {
 
+    }
+
+    private void Awake()
+    {
+        action = GetComponent<ActionState>();
+        navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
     public override void Enter()
     {
-        
+        base.Enter();
     }
 
-    public bool UpdateLogic(GameObject gObject)
+    public override void UpdateLogic()
     {
+        base.UpdateLogic();
 
-        var position = gObject.transform.position;
-        var distance = Vector3.Distance(position, _target);
-        if (gObject.TryGetComponent(out float speed))
+        if (waiting)
         {
-            var dir = (_target - position).normalized;
-            var velocity = 1 * Time.deltaTime * dir;
-            if (velocity.magnitude > distance)
+            waitCounter += Time.deltaTime;
+            Debug.Log("Waiting");
+            if (waitCounter < waitTime)
             {
-                gObject.transform.position = _target;
-                return true;
+                return;
             }
-            else
-            {
-                var newPosition = position + velocity;
-                gObject.transform.position = newPosition;
-                return false;
-            }
+            waiting = false;
         }
-        return true;
+
+        Transform waypoint = waypoints[currentIndex];
+        if (Vector3.Distance(transform.position, waypoint.position) < 0.1f)
+        {
+            //transform.position = waypoint.position;
+            navMeshAgent.SetDestination(waypoint.position);
+
+            waitCounter = 0f;
+            waiting = true;
+
+            currentIndex = (currentIndex + 1) % waypoints.Length;
+        }
+        else
+        {
+            //transform.position = Vector3.MoveTowards(transform.position, waypoint.position, speed * Time.deltaTime);
+            //transform.LookAt(waypoint.position);
+
+            navMeshAgent.SetDestination(waypoint.position);
+        }
+
     }
 
     public override BaseState CheckTransition()
     {
-        GameObject gObject = this.gameObject;
-
-        //if move is done transition to action state
-        var position = gObject.transform.position;
-        var distance = Vector3.Distance(position, _target);
-        if (distance < float.Epsilon)
-        {
-            return this;
-        }
-        else return this;
+        return null;
     }
 }
