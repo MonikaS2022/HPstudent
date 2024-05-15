@@ -351,6 +351,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 19149020}
+  - component: {fileID: 19149021}
   m_Layer: 0
   m_Name: Waypoint 2
   m_TagString: Untagged
@@ -373,6 +374,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1720516461}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &19149021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19149019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 610341835dc175d4f949fff0c3abfc4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveDistance: 2
+  speed: 0.5
 --- !u!1 &37429032
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,6 +397,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 37429033}
+  - component: {fileID: 37429034}
   m_Layer: 0
   m_Name: Waypoint 3
   m_TagString: Untagged
@@ -397,13 +413,27 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 37429032}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.59931695, z: -0, w: 0.8005119}
   m_LocalPosition: {x: 5, y: 0, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1720516461}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -73.642, z: 0}
+--- !u!114 &37429034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37429032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 610341835dc175d4f949fff0c3abfc4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveDistance: 1
+  speed: 0.5
 --- !u!1 &41431439
 GameObject:
   m_ObjectHideFlags: 0
@@ -3429,6 +3459,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 656989907}
+  - component: {fileID: 656989908}
   m_Layer: 0
   m_Name: Waypoint 1
   m_TagString: Untagged
@@ -3451,6 +3482,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1720516461}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &656989908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656989906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 610341835dc175d4f949fff0c3abfc4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveDistance: 1
+  speed: 0.5
 --- !u!1 &661962168 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3a248f38427b0b947a989c18fc4f1658, type: 3}
@@ -8165,6 +8210,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1485117212}
+  - component: {fileID: 1485117213}
   m_Layer: 0
   m_Name: Waypoint 4
   m_TagString: Untagged
@@ -8180,13 +8226,27 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1485117211}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: 0.45455232, z: -0, w: 0.89072}
   m_LocalPosition: {x: -2, y: 0, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1720516461}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 54.072, z: 0}
+--- !u!114 &1485117213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485117211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 610341835dc175d4f949fff0c3abfc4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveDistance: 1
+  speed: 0.5
 --- !u!1 &1516947521
 GameObject:
   m_ObjectHideFlags: 0
@@ -12414,7 +12474,7 @@ MonoBehaviour:
   - {fileID: 19149020}
   - {fileID: 37429033}
   - {fileID: 1485117212}
-  waitTime: 1
+  waitTime: 3
   waitCounter: 0
   waiting: 0
   speed: 3

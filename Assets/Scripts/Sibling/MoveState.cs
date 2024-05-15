@@ -8,6 +8,7 @@ public class MoveState : BaseState
 {
     //[SerializeField] Vector3 _target;
     [SerializeField] Transform[] waypoints;
+    Vector3 destination;
     int currentIndex = 0;
 
     NavMeshAgent navMeshAgent;
@@ -29,16 +30,27 @@ public class MoveState : BaseState
     {
         action = GetComponent<ActionState>();
         navMeshAgent = GetComponent<NavMeshAgent>();
+
     }
 
     public override void Enter()
     {
         base.Enter();
     }
+    bool hasDestination = false;
 
     public override void UpdateLogic()
     {
         base.UpdateLogic();
+
+        Transform waypoint = waypoints[currentIndex];
+        if (!hasDestination)
+        {
+            destination = waypoint.position;
+            navMeshAgent.SetDestination(waypoint.position);
+            hasDestination = true;
+
+        }
 
         if (waiting)
         {
@@ -50,12 +62,11 @@ public class MoveState : BaseState
             }
             waiting = false;
         }
-
-        Transform waypoint = waypoints[currentIndex];
-        if (Vector3.Distance(transform.position, waypoint.position) < 0.1f)
+        else if (Vector3.Distance(transform.position, destination) < 0.1f)
         {
             //transform.position = waypoint.position;
-            navMeshAgent.SetDestination(waypoint.position);
+
+            hasDestination = false;
 
             waitCounter = 0f;
             waiting = true;
@@ -67,7 +78,7 @@ public class MoveState : BaseState
             //transform.position = Vector3.MoveTowards(transform.position, waypoint.position, speed * Time.deltaTime);
             //transform.LookAt(waypoint.position);
 
-            navMeshAgent.SetDestination(waypoint.position);
+            //navMeshAgent.SetDestination(waypoint.position);
         }
 
     }
