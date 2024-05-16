@@ -56,7 +56,7 @@ public abstract class M_Enemy : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            OnDeath();
+            TransitionTo(new DeathState(this));
         }
     }
 
@@ -111,14 +111,15 @@ public abstract class M_Enemy : MonoBehaviour
         }
     }
 
-    class FleeState : State
+    class DeathState : State
     {
-        public FleeState(M_Enemy stateMachine) : base(stateMachine)
+        public DeathState(M_Enemy stateMachine) : base(stateMachine)
         {
         }
 
         public override void Enter()
         {
+            stateMachine.OnDeath();
             base.Enter();
         }
 
