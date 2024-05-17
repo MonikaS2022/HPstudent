@@ -12,7 +12,7 @@ public class CameraRotation : MonoBehaviour
     
     float zoomSpeed = 0.5f;
     float maxZoom = 1f;
-    float minZoom = 4f;
+    float minZoom = 6f;
     public float zoomStatus;
 
     private void Update()
