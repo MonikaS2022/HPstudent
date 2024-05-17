@@ -40,8 +40,10 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-
-
+        if (Survival.Instance.inMinigame)
+        {
+            return;
+        }
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -67,23 +69,23 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (Input.GetButtonDown("Jump") && !_jump)
-        {
+        //if (Input.GetButtonDown("Jump") && !_jump)
+        //{
             
-        }
-        else
-        {
-            //if (!Input.anyKey)
-            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
-            {
+        //}
+        //else
+        //{
+        //    //if (!Input.anyKey)
+        //    if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        //    {
 
-                Move();
-            }
-            else
-            {
-                //isMoving = false;
-            }
-        }
+        //        Move();
+        //    }
+        //    else
+        //    {
+        //        //isMoving = false;
+        //    }
+        //}
         animator.SetBool("isMoving", isMoving);
     }
 
