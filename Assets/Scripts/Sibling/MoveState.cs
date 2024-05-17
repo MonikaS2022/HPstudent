@@ -19,7 +19,7 @@ public class MoveState : BaseState
 
     [SerializeField] int speed;
 
-    ActionState action;
+    [SerializeField] ActionState action;
 
     public MoveState(SiblingController siblingController) : base("Move", siblingController)
     {
@@ -52,27 +52,27 @@ public class MoveState : BaseState
 
         }
 
-        if (waiting)
-        {
-            waitCounter += Time.deltaTime;
-            Debug.Log("Waiting");
-            if (waitCounter < waitTime)
-            {
-                return;
-            }
-            waiting = false;
-        }
-        else if (Vector3.Distance(transform.position, destination) < 0.1f)
-        {
-            //transform.position = waypoint.position;
+        //if (waiting)
+        //{
+        //    waitCounter += Time.deltaTime;
+        //    //Debug.Log("Waiting");
+        //    if (waitCounter < waitTime)
+        //    {
+        //        return;
+        //    }
+        //    waiting = false;
+        //}
+        //else if (Vector3.Distance(transform.position, destination) < 0.1f)
+        //{
+        //    //transform.position = waypoint.position;
 
-            hasDestination = false;
+        //    hasDestination = false;
 
-            waitCounter = 0f;
-            waiting = true;
+        //    waitCounter = 0f;
+        //    waiting = true;
 
-            currentIndex = (currentIndex + 1) % waypoints.Length;
-        }
+        //    currentIndex = (currentIndex + 1) % waypoints.Length;
+        //}
         else
         {
             //transform.position = Vector3.MoveTowards(transform.position, waypoint.position, speed * Time.deltaTime);
@@ -85,6 +85,21 @@ public class MoveState : BaseState
 
     public override BaseState CheckTransition()
     {
-        return null;
+        if (Vector3.Distance(transform.position, destination) < 0.1f)
+        {
+            //transform.position = waypoint.position;
+
+            hasDestination = false;
+
+            waitCounter = 0f;
+            waiting = true;
+
+            currentIndex = (currentIndex + 1) % waypoints.Length;
+
+            return action;
+
+        }
+        else 
+            return null;
     }
 }

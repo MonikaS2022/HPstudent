@@ -14,6 +14,9 @@ public class SiblingController : MonoBehaviour
     private void Awake()
     {
         moveState = GetComponent<MoveState>();
+        actionState = GetComponent<ActionState>();
+
+
     }
 
     protected BaseState GetInitialState()

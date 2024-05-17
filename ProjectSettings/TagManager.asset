@@ -7,6 +7,7 @@ TagManager:
   - M_Player
   - Enemy
   - Non Navmesh
+  - Sibling
   layers:
   - Default
   - TransparentFX

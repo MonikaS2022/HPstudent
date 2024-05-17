@@ -7,10 +7,11 @@ public class WayPointScript : MonoBehaviour
     [SerializeField] float moveDistance;
     float displacement;
     [SerializeField] float speed;
-    // Start is called before the first frame update
+    // Start is called before the first frame update 
+
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -26,4 +27,7 @@ public class WayPointScript : MonoBehaviour
         transform.Translate(transform.forward * speed * Time.deltaTime);
 
     }
+
+
+
 }
