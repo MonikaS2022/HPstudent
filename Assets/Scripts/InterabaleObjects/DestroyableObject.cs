@@ -10,5 +10,6 @@ public class DestroyableObject : MonoBehaviour, IInteractable
     {
         Debug.Log("you distroyed me: " + objectName);
         this.gameObject.SetActive(false);
+        Survival.Instance.IncreaseKnowledge(20);
     }
 }

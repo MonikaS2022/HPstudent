@@ -27,7 +27,7 @@ public class InventoryCanvas : MonoBehaviour
         placeHolder1.text = "nothing yet";
         placeHolder2.text = "nothing yet";
         amount.text = Inventory.Instance.maxInventories.ToString();
-        Debug.Log(Inventory.Instance.maxInventories.ToString());
+        //Debug.Log(Inventory.Instance.maxInventories.ToString());
     }
 
 
