@@ -33,7 +33,7 @@ public class M_PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!Survival.Instance.inMinigame)
+        if (!Survival.Instance.inMinigame1)
         {
             return;
         }

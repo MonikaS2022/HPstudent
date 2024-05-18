@@ -21,7 +21,7 @@ public class M_PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!Survival.Instance.inMinigame || !canAttack)
+        if (!Survival.Instance.inMinigame1 || !canAttack)
         {
             return;
         }

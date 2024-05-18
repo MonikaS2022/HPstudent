@@ -415,8 +415,6 @@ MonoBehaviour:
   - {fileID: 1870988234}
   - {fileID: 1613393178}
   waitTime: 3
-  waitCounter: 0
-  waiting: 0
   speed: 3
   action: {fileID: 0}
 --- !u!114 &14637978
@@ -2847,6 +2845,9 @@ MonoBehaviour:
   currentKnowledge: 100
   maxKnowledge: 100
   inMinigame: 0
+  inMinigame1: 0
+  inMinigame2: 0
+  inMinigame3: 0
 --- !u!1 &276248888
 GameObject:
   m_ObjectHideFlags: 0
@@ -3542,7 +3543,7 @@ MonoBehaviour:
   beingUsed: 0
   mainCam: {fileID: 963194227}
   gameCam: {fileID: 196124393}
-  systems: {fileID: 1272702500}
+  systems: {fileID: 1272702503}
 --- !u!1001 &374421259
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12411,11 +12412,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1272702499}
-  - component: {fileID: 1272702500}
+  - component: {fileID: 1272702503}
   - component: {fileID: 1272702501}
   - component: {fileID: 1272702502}
   m_Layer: 0
-  m_Name: M_Systems
+  m_Name: M_Systems_Minigame1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12436,28 +12437,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1272702500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1272702498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6772583117dc4040a85f6b0384c9c14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 172709728}
-  poolP: {fileID: 1272702501}
-  poolK: {fileID: 1272702502}
-  amountEnemies: 20
-  spawnTime: 1
-  spawnPoints:
-  - {fileID: 1627404239}
-  - {fileID: 978628405}
-  - {fileID: 345608002}
-  - {fileID: 837566753}
 --- !u!114 &1272702501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12486,6 +12465,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 9141390055510926819, guid: 8e3afa1a07e708047bc3174199fd6a0b, type: 3}
   initialSpawnLocation: {x: 0, y: 0, z: 0}
+--- !u!114 &1272702503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272702498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33b074c276db2a34dac3ff9f8ab118f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 172709728}
+  poolP: {fileID: 1272702501}
+  poolK: {fileID: 1272702501}
+  amountEnemies: 20
+  spawnTime: 1
+  spawnPoints:
+  - {fileID: 1627404239}
+  - {fileID: 978628405}
+  - {fileID: 345608002}
+  - {fileID: 837566753}
 --- !u!1 &1277712182
 GameObject:
   m_ObjectHideFlags: 0
@@ -15105,6 +15106,85 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04d7a2c18c48996478ccd0fa2f0627f0, type: 3}
+--- !u!1 &1660229814
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1660229818}
+  - component: {fileID: 1660229819}
+  - component: {fileID: 1660229816}
+  - component: {fileID: 1660229815}
+  m_Layer: 0
+  m_Name: M_Systems_Minigame2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1660229815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660229814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6635ba635638904c8bbf4ace785c1c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 9141390055510926819, guid: 8e3afa1a07e708047bc3174199fd6a0b, type: 3}
+  initialSpawnLocation: {x: 0, y: 0, z: 0}
+--- !u!114 &1660229816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660229814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6635ba635638904c8bbf4ace785c1c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 9141390055510926819, guid: 0317d51c7e4fe65428e541f259ed2c27, type: 3}
+  initialSpawnLocation: {x: 0, y: 0, z: 0}
+--- !u!4 &1660229818
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660229814}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.2062583, y: -1.9845527, z: -0.19193561}
+  m_LocalScale: {x: 0.11995987, y: 0.11995987, z: 0.11995987}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1670078456}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1660229819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660229814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e176febd8ae2fb145b069428c21f3365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolP: {fileID: 1660229816}
+  poolK: {fileID: 1660229816}
+  amountEnemies: 20
+  spawnTime: 2
+  spawnPoints: []
 --- !u!1 &1670078455
 GameObject:
   m_ObjectHideFlags: 0
@@ -15137,6 +15217,7 @@ Transform:
   - {fileID: 1707033086114239454}
   - {fileID: 1954169352}
   - {fileID: 330878162}
+  - {fileID: 1660229818}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1682577630
@@ -19097,7 +19178,7 @@ MonoBehaviour:
   beingUsed: 0
   mainCam: {fileID: 963194227}
   gameCam: {fileID: 330878161}
-  systems: {fileID: 0}
+  systems: {fileID: 1660229819}
 --- !u!4 &2135373435 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6251920492078742113, guid: 6cdd667aa0034cd4dadc8d58a65fb098, type: 3}

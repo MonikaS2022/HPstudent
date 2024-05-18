@@ -14,8 +14,6 @@ public class MoveState : BaseState
     NavMeshAgent navMeshAgent;
 
     [SerializeField] float waitTime = 1f;
-    [SerializeField] float waitCounter = 0f;
-    [SerializeField] bool waiting;
 
     [SerializeField] int speed;
 
@@ -52,47 +50,14 @@ public class MoveState : BaseState
 
         }
 
-        //if (waiting)
-        //{
-        //    waitCounter += Time.deltaTime;
-        //    //Debug.Log("Waiting");
-        //    if (waitCounter < waitTime)
-        //    {
-        //        return;
-        //    }
-        //    waiting = false;
-        //}
-        //else if (Vector3.Distance(transform.position, destination) < 0.1f)
-        //{
-        //    //transform.position = waypoint.position;
-
-        //    hasDestination = false;
-
-        //    waitCounter = 0f;
-        //    waiting = true;
-
-        //    currentIndex = (currentIndex + 1) % waypoints.Length;
-        //}
-        else
-        {
-            //transform.position = Vector3.MoveTowards(transform.position, waypoint.position, speed * Time.deltaTime);
-            //transform.LookAt(waypoint.position);
-
-            //navMeshAgent.SetDestination(waypoint.position);
-        }
-
     }
 
     public override BaseState CheckTransition()
     {
         if (Vector3.Distance(transform.position, destination) < 0.1f)
         {
-            //transform.position = waypoint.position;
 
             hasDestination = false;
-
-            waitCounter = 0f;
-            waiting = true;
 
             currentIndex = (currentIndex + 1) % waypoints.Length;
 

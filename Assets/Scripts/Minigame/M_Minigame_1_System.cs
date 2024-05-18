@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class M_Minigame_2_System : M_Systems
+public class M_Minigame_1_System : M_Systems
 {
+    [SerializeField] GameObject player;
     [SerializeField] M_Objectpool poolP;
     [SerializeField] M_Objectpool poolK;
     [SerializeField] int amountEnemies;
@@ -18,13 +19,16 @@ public class M_Minigame_2_System : M_Systems
 
     void Start()
     {
+        playerPosition = player.transform.position;
         poolP.CreateObjectPool(amountEnemies);
-        poolK.CreateObjectPool(amountEnemies/4);
+        poolK.CreateObjectPool(amountEnemies / 4);
         enemies = new List<M_Enemy>();
     }
+
+    // Update is called once per frame
     void Update()
     {
-        if (!Survival.Instance.inMinigame2)
+        if (!Survival.Instance.inMinigame1)
         {
             return;
         }
@@ -76,11 +80,14 @@ public class M_Minigame_2_System : M_Systems
     {
         shouldSpawn = true;
 
-        Survival.Instance.inMinigame2 = true;
+        Survival.Instance.inMinigame1 = true;
+
+        player.GetComponent<M_PlayerController>().ResetHealth();
     }
 
     public override void StopGame()
     {
+        player.transform.position = playerPosition;
         shouldSpawn = false;
 
         for (int i = enemies.Count - 1; i >= 0; i--)
@@ -95,8 +102,8 @@ public class M_Minigame_2_System : M_Systems
             }
             enemies.Remove(enemies[i]);
 
+            Survival.Instance.inMinigame1 = false;
         }
-        Survival.Instance.inMinigame2 = false;
     }
 
     IEnumerator SpawnTimer(float spawnDelay)
@@ -105,5 +112,4 @@ public class M_Minigame_2_System : M_Systems
 
         shouldSpawn = true;
     }
-
 }
