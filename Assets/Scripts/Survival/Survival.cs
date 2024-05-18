@@ -32,6 +32,10 @@ public class Survival : MonoBehaviour
 
     public bool inMinigame = false;
 
+    public bool inMinigame1 = false;
+    public bool inMinigame2 = false;
+    public bool inMinigame3 = false;
+
     public float CurrentPleasure
     {
         get { return currentPleasure; }

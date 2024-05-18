@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.AI;
 
-public class M_Systems : MonoBehaviour
+public class M_Minigame_2_System : MonoBehaviour
 {
     [SerializeField] GameObject player;
     [SerializeField] M_Objectpool poolP;
@@ -26,11 +24,9 @@ public class M_Systems : MonoBehaviour
         poolK.CreateObjectPool(amountEnemies/4);
         enemies = new List<M_Enemy>();
     }
-
-    // Update is called once per frame
     void Update()
     {
-        if (!Survival.Instance.inMinigame1)
+        if (!Survival.Instance.inMinigame2)
         {
             return;
         }
@@ -39,7 +35,7 @@ public class M_Systems : MonoBehaviour
         {
 
             M_Enemy enemy;
-            if ( Random.Range(0, 10) == 1)
+            if (Random.Range(0, 10) == 1)
             {
                 enemy = poolK.GetObject();
             }
@@ -47,7 +43,7 @@ public class M_Systems : MonoBehaviour
             {
                 enemy = poolP.GetObject();
             }
-            
+
             enemies.Add(enemy);
             Vector3 spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position;
 
@@ -109,4 +105,5 @@ public class M_Systems : MonoBehaviour
 
         shouldSpawn = true;
     }
+
 }

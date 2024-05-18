@@ -49,6 +49,7 @@ public class M_Switch : MonoBehaviour
                 gameCam.enabled = true;
                 mainCam.enabled = false;
                 Survival.Instance.inMinigame = true;
+
                 systems.StartGame();
             }
 
