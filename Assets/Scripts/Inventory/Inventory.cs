@@ -56,5 +56,33 @@ public class Inventory : MonoBehaviour
         }
         return inventory[nr].objectName;
     }
-   
+
+    public void EatNowSpot1()
+    {
+        if (inventory[0] != null)
+        {
+            Debug.Log("You ate me");
+            Survival.Instance.IncreaseHunger(50);
+            RemoveFromInventory(0);
+            RaiseOnInventoryChanged();
+        }
+    }
+
+    public void EatNowSpot2()
+    {
+        if (inventory[1] != null)
+        {
+            Debug.Log("You ate me");
+            Survival.Instance.IncreaseHunger(50);
+            RemoveFromInventory(1);
+            RaiseOnInventoryChanged();
+        }
+
+    }
+
+    public void RemoveFromInventory(int j)
+    {
+        inventory[j] = null;
+    }
+
 }
