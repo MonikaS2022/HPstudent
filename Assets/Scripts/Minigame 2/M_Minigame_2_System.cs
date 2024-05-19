@@ -11,7 +11,7 @@ public class M_Minigame_2_System : M_Systems
     [SerializeField] M_Objectpool poolHotDog;
     [SerializeField] M_Objectpool poolWatermelon;
     [SerializeField] M_Objectpool poolCheese;
-    [SerializeField] int amountEnemies;
+    [SerializeField] int amountEnemies = 20;
     [SerializeField] float spawnTime = 2f;
     Vector3 playerPosition;
 
@@ -23,14 +23,7 @@ public class M_Minigame_2_System : M_Systems
 
     void Start()
     {
-        poolBanan.CreateObjectPool(amountEnemies);
-        poolBurger.CreateObjectPool(amountEnemies/4);
-        poolCherry.CreateObjectPool(amountEnemies/4);
-        poolOlive.CreateObjectPool(amountEnemies/4);
-        poolHotDog.CreateObjectPool(amountEnemies/4);
-        poolWatermelon.CreateObjectPool(amountEnemies/4);
-        poolCheese.CreateObjectPool(amountEnemies/4);
-        enemies = new List<M_Enemy>();
+       
     }
     void Update()
     {
@@ -38,6 +31,8 @@ public class M_Minigame_2_System : M_Systems
         {
             return;
         }
+
+        Debug.Log(shouldSpawn.ToString() + ", "+ enemies.Count + ", "+ amountEnemies);
 
         if (shouldSpawn && enemies.Count < amountEnemies + (amountEnemies / 4))
         {
@@ -128,6 +123,15 @@ public class M_Minigame_2_System : M_Systems
     {
         shouldSpawn = true;
 
+        enemies = new List<M_Enemy>();
+        poolBanan.CreateObjectPool(amountEnemies);
+        poolBurger.CreateObjectPool(amountEnemies);
+        poolCherry.CreateObjectPool(amountEnemies);
+        poolOlive.CreateObjectPool(amountEnemies);
+        poolHotDog.CreateObjectPool(amountEnemies);
+        poolWatermelon.CreateObjectPool(amountEnemies);
+        poolCheese.CreateObjectPool(amountEnemies);
+
         Survival.Instance.inMinigame2 = true;
     }
 
@@ -168,9 +172,9 @@ public class M_Minigame_2_System : M_Systems
                 poolWatermelon.ReleaseObject(enemies[i]);
             }
             enemies.Remove(enemies[i]);
+            Survival.Instance.inMinigame2 = false;
 
         }
-        Survival.Instance.inMinigame2 = false;
     }
 
     IEnumerator SpawnTimer(float spawnDelay)
@@ -180,6 +184,6 @@ public class M_Minigame_2_System : M_Systems
         shouldSpawn = true;
     }
 
-    
+
 
 }
