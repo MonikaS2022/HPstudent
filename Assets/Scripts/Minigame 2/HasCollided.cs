@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HasCollided : MonoBehaviour
 {
-    [SerializeField] int increaseHunger = 5;
+    [SerializeField] int increaseHunger = 20;
 
     private void OnTriggerEnter(Collider other)
     {

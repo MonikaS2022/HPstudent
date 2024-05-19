@@ -5,6 +5,7 @@ using UnityEngine;
 public class Cube_Player_Controller : MonoBehaviour
 {
     [SerializeField] float movementSpeed = 10;
+    [SerializeField] float relativeWeight = 500;
     [SerializeField] Camera minigame_2_camera;
     CharacterController characterController;
     Rigidbody rigidBody;
@@ -29,8 +30,12 @@ public class Cube_Player_Controller : MonoBehaviour
         {
             return;
         }
+
+
+
         GatherInput();
         Move();
+
 
         transform.position = new Vector3(transform.position.x, positionLock.y, positionLock.z);
         transform.rotation = rotationLock;
@@ -45,8 +50,8 @@ public class Cube_Player_Controller : MonoBehaviour
     {
         //input.y = 0;
         //characterController.Move(input * movementSpeed * Time.deltaTime);
-        rigidBody.AddForce(input * movementSpeed * Time.deltaTime * 100000000000);
-
+        //rigidBody.AddForce(input * movementSpeed * Time.deltaTime * 1000);
+        rigidBody.velocity  = (input * movementSpeed * Time.deltaTime * relativeWeight);
     }
 
 
