@@ -87,6 +87,7 @@ public class M_Minigame_1_System : M_Systems
 
     public override void StopGame()
     {
+        base.StopGame();
         player.transform.position = playerPosition;
         shouldSpawn = false;
 

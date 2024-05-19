@@ -81,6 +81,8 @@ public class M_Minigame_2_System : M_Systems
 
     public override void StopGame()
     {
+        base.StopGame();
+
         shouldSpawn = false;
 
         for (int i = enemies.Count - 1; i >= 0; i--)

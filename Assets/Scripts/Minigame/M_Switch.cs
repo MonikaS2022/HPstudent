@@ -44,17 +44,23 @@ public class M_Switch : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.M))
         {
 
-            if (Vector3.Distance(player.transform.position, transform.position) < interactionRange && !Survival.Instance.inMinigame)
+            if (Vector3.Distance(player.transform.position, transform.position) < interactionRange
+                && !Survival.Instance.inMinigame1 
+                && !Survival.Instance.inMinigame2 
+                && !Survival.Instance.inMinigame3)
             {
+                Debug.Log("Entering Minigame");
                 gameCam.enabled = true;
                 mainCam.enabled = false;
                 Survival.Instance.inMinigame = true;
 
                 systems.StartGame();
             }
-
-            else if (Survival.Instance.inMinigame)
+            else if (Survival.Instance.inMinigame1
+                || Survival.Instance.inMinigame2
+                || Survival.Instance.inMinigame3)
             {
+                Debug.Log("Leaving Minigame");
                 gameCam.enabled = false;
                 mainCam.enabled = true;
                 Survival.Instance.inMinigame = false;

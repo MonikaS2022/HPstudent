@@ -14,7 +14,7 @@ public abstract class M_Systems : MonoBehaviour
 
     public virtual void StopGame()
     {
-     
+        Survival.Instance.inMinigame = false;
     }
 
 }

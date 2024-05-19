@@ -40,7 +40,9 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Survival.Instance.inMinigame)
+        if (Survival.Instance.inMinigame1 
+            || Survival.Instance.inMinigame2 
+            || Survival.Instance.inMinigame3)
         {
             return;
         }

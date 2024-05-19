@@ -415,8 +415,6 @@ MonoBehaviour:
   - {fileID: 1870988234}
   - {fileID: 1613393178}
   waitTime: 3
-  waitCounter: 0
-  waiting: 0
   speed: 3
   action: {fileID: 0}
 --- !u!114 &14637978
@@ -570,7 +568,7 @@ GameObject:
   - component: {fileID: 17836072}
   - component: {fileID: 17836071}
   - component: {fileID: 17836070}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: pickable_drink4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2871,6 +2869,67 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 239389100}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &241625899
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1050308412067342626, guid: 2db56ef6a99fe3042a3d715826bb39ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050308412067342626, guid: 2db56ef6a99fe3042a3d715826bb39ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050308412067342626, guid: 2db56ef6a99fe3042a3d715826bb39ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 123.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050308412067342626, guid: 2db56ef6a99fe3042a3d715826bb39ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050308412067342626, guid: 2db56ef6a99fe3042a3d715826bb39ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050308412067342626, guid: 2db56ef6a99fe3042a3d715826bb39ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050308412067342626, guid: 2db56ef6a99fe3042a3d715826bb39ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050308412067342626, guid: 2db56ef6a99fe3042a3d715826bb39ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050308412067342626, guid: 2db56ef6a99fe3042a3d715826bb39ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050308412067342626, guid: 2db56ef6a99fe3042a3d715826bb39ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588261619513028883, guid: 2db56ef6a99fe3042a3d715826bb39ec, type: 3}
+      propertyPath: m_Name
+      value: Minigame_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8747580589665711999, guid: 2db56ef6a99fe3042a3d715826bb39ec, type: 3}
+      propertyPath: mainCam
+      value: 
+      objectReference: {fileID: 963194227}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2db56ef6a99fe3042a3d715826bb39ec, type: 3}
 --- !u!4 &243753272 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1439603208813202615, guid: 66d0615cc71cd48408b75ff3f99c97af, type: 3}
@@ -3089,6 +3148,9 @@ MonoBehaviour:
   currentKnowledge: 100
   maxKnowledge: 100
   inMinigame: 0
+  inMinigame1: 0
+  inMinigame2: 0
+  inMinigame3: 0
 --- !u!1 &276248888
 GameObject:
   m_ObjectHideFlags: 0
@@ -3242,6 +3304,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: cba00f75539bc564fabb9136fccfac6c, type: 3}
       propertyPath: m_Name
       value: book_0001a
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: cba00f75539bc564fabb9136fccfac6c, type: 3}
+      propertyPath: m_Layer
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cba00f75539bc564fabb9136fccfac6c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3514,7 +3580,7 @@ Transform:
   m_GameObject: {fileID: 345608002}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -201.4183, y: 0.5, z: -24.740044}
+  m_LocalPosition: {x: -190.37, y: 0.5, z: -19.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3758,7 +3824,7 @@ MonoBehaviour:
   beingUsed: 0
   mainCam: {fileID: 963194227}
   gameCam: {fileID: 196124393}
-  systems: {fileID: 1272702500}
+  systems: {fileID: 1272702503}
 --- !u!1001 &374421259
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4500,6 +4566,10 @@ PrefabInstance:
     - target: {fileID: 6557717566896455631, guid: eeaad410de59e8c408e89f8f1260dece, type: 3}
       propertyPath: m_Name
       value: toy_001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6557717566896455631, guid: eeaad410de59e8c408e89f8f1260dece, type: 3}
+      propertyPath: m_Layer
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6253,7 +6323,7 @@ GameObject:
   - component: {fileID: 640177947}
   - component: {fileID: 640177946}
   - component: {fileID: 640177950}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MainFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6365,7 +6435,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 167
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_GenerateLinks: 0
@@ -8218,7 +8288,7 @@ GameObject:
   - component: {fileID: 814878305}
   - component: {fileID: 814878304}
   - component: {fileID: 814878303}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CarpetKitchen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8506,7 +8576,7 @@ Transform:
   m_GameObject: {fileID: 837566753}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -141.9083, y: 0.5, z: -26.200043}
+  m_LocalPosition: {x: -148.48, y: 0.5, z: -20.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10265,13 +10335,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 867084881}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: 0, z: 0}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
+  m_LocalPosition: {x: 0.638, y: 0, z: 4.289}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 253942371}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 90}
 --- !u!114 &867084883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12898,11 +12968,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1272702499}
-  - component: {fileID: 1272702500}
   - component: {fileID: 1272702501}
   - component: {fileID: 1272702502}
+  - component: {fileID: 1272702503}
   m_Layer: 0
-  m_Name: M_Systems
+  m_Name: M_Systems_Minigame1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12923,28 +12993,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1272702500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1272702498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6772583117dc4040a85f6b0384c9c14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 172709728}
-  poolP: {fileID: 1272702501}
-  poolK: {fileID: 1272702502}
-  amountEnemies: 20
-  spawnTime: 1
-  spawnPoints:
-  - {fileID: 1627404239}
-  - {fileID: 978628405}
-  - {fileID: 345608002}
-  - {fileID: 837566753}
 --- !u!114 &1272702501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12973,6 +13021,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 9141390055510926819, guid: 8e3afa1a07e708047bc3174199fd6a0b, type: 3}
   initialSpawnLocation: {x: 0, y: 0, z: 0}
+--- !u!114 &1272702503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272702498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33b074c276db2a34dac3ff9f8ab118f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 172709728}
+  poolP: {fileID: 1272702501}
+  poolK: {fileID: 1272702501}
+  amountEnemies: 20
+  spawnTime: 1
+  spawnPoints:
+  - {fileID: 1627404239}
+  - {fileID: 978628405}
+  - {fileID: 345608002}
+  - {fileID: 837566753}
 --- !u!1 &1277712182
 GameObject:
   m_ObjectHideFlags: 0
@@ -14148,7 +14218,7 @@ GameObject:
   - component: {fileID: 1418349551}
   - component: {fileID: 1418349550}
   - component: {fileID: 1418349549}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: pickable_drink5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14345,7 +14415,7 @@ GameObject:
   - component: {fileID: 1446443238}
   - component: {fileID: 1446443237}
   - component: {fileID: 1446443240}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16317,7 +16387,7 @@ GameObject:
   - component: {fileID: 1729832885}
   - component: {fileID: 1729832884}
   - component: {fileID: 1729832883}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CarpetBedroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18112,7 +18182,7 @@ GameObject:
   - component: {fileID: 1975997452}
   - component: {fileID: 1975997451}
   - component: {fileID: 1975997450}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CarpetLiving
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19907,7 +19977,7 @@ GameObject:
   - component: {fileID: 3314640136959823224}
   - component: {fileID: 8873874461155733470}
   - component: {fileID: 8873874461155733471}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: pickable_drink1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20132,7 +20202,7 @@ GameObject:
   - component: {fileID: 7110927451004918799}
   - component: {fileID: 7383418621154807542}
   - component: {fileID: 8768485003871354331}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: destroyable_box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20219,3 +20289,4 @@ SceneRoots:
   - {fileID: 837566754}
   - {fileID: 14637983}
   - {fileID: 253942371}
+  - {fileID: 241625899}
