@@ -23,7 +23,14 @@ public class M_Minigame_2_System : M_Systems
 
     void Start()
     {
-       
+        enemies = new List<M_Enemy>();
+        poolBanan.CreateObjectPool(amountEnemies);
+        poolBurger.CreateObjectPool(amountEnemies);
+        poolCherry.CreateObjectPool(amountEnemies);
+        poolOlive.CreateObjectPool(amountEnemies);
+        poolHotDog.CreateObjectPool(amountEnemies);
+        poolWatermelon.CreateObjectPool(amountEnemies);
+        poolCheese.CreateObjectPool(amountEnemies);
     }
     void Update()
     {
@@ -122,15 +129,6 @@ public class M_Minigame_2_System : M_Systems
     public override void StartGame()
     {
         shouldSpawn = true;
-
-        enemies = new List<M_Enemy>();
-        poolBanan.CreateObjectPool(amountEnemies);
-        poolBurger.CreateObjectPool(amountEnemies);
-        poolCherry.CreateObjectPool(amountEnemies);
-        poolOlive.CreateObjectPool(amountEnemies);
-        poolHotDog.CreateObjectPool(amountEnemies);
-        poolWatermelon.CreateObjectPool(amountEnemies);
-        poolCheese.CreateObjectPool(amountEnemies);
 
         Survival.Instance.inMinigame2 = true;
     }

@@ -10,13 +10,13 @@ public class HasCollided : MonoBehaviour
     {
         if (other.gameObject.tag == "Bowl")
         {
-            other.gameObject.GetComponent<M_Enemy>().health = 0;
+            gameObject.GetComponent<M_Enemy>().health = 0;
             Survival.Instance.IncreaseHunger(increaseHunger);
         }
 
         if (other.gameObject.tag == "M2_Plane")
         {
-            other.gameObject.GetComponent<M_Enemy>().health = 0;
+            gameObject.GetComponent<M_Enemy>().health = 0;
         }
     }
 }

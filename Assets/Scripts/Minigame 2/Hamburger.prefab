@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2204101819045362311
+--- !u!1 &3701437052098294020
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,12 +8,13 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2526255792414996327}
-  - component: {fileID: 306264281827031600}
-  - component: {fileID: 497134031100523376}
-  - component: {fileID: 8451014614307658919}
-  - component: {fileID: 1929464516935188314}
-  - component: {fileID: 2167135063389132752}
+  - component: {fileID: 1422468132121690029}
+  - component: {fileID: 385742894882795296}
+  - component: {fileID: 9197956098950921304}
+  - component: {fileID: 571917479844840344}
+  - component: {fileID: 2353164433466576740}
+  - component: {fileID: 5985953912323656039}
+  - component: {fileID: 2978474168959496408}
   m_Layer: 0
   m_Name: Hamburger
   m_TagString: Untagged
@@ -21,36 +22,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2526255792414996327
+--- !u!4 &1422468132121690029
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2204101819045362311}
+  m_GameObject: {fileID: 3701437052098294020}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.4530444, y: 13.77979, z: 120}
-  m_LocalScale: {x: 0.59979934, y: 0.59979934, z: 0.59979934}
+  m_LocalPosition: {x: 44.784996, y: 114.86999, z: 1123.9344}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &306264281827031600
+--- !u!33 &385742894882795296
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2204101819045362311}
+  m_GameObject: {fileID: 3701437052098294020}
   m_Mesh: {fileID: 4300002, guid: 54b107e50acd7e24b96d7de887c68833, type: 3}
---- !u!23 &497134031100523376
+--- !u!23 &9197956098950921304
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2204101819045362311}
+  m_GameObject: {fileID: 3701437052098294020}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -91,13 +92,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8451014614307658919
+--- !u!65 &571917479844840344
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2204101819045362311}
+  m_GameObject: {fileID: 3701437052098294020}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -112,13 +113,13 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.41029206, y: 0.28791666, z: 0.39279792}
   m_Center: {x: -0.0023071289, y: 0.14395829, z: -0.00968014}
---- !u!54 &1929464516935188314
+--- !u!54 &2353164433466576740
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2204101819045362311}
+  m_GameObject: {fileID: 3701437052098294020}
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
@@ -139,16 +140,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 8
   m_CollisionDetection: 0
---- !u!114 &2167135063389132752
+--- !u!114 &5985953912323656039
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2204101819045362311}
+  m_GameObject: {fileID: 3701437052098294020}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea5fdc91d1817524a962221b69eba6cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   increaseHunger: 5
+--- !u!114 &2978474168959496408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3701437052098294020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21d78f85fd9a9cd4f919226d42d47bca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  speed: 10
