@@ -7,12 +7,19 @@ public class Cube_Player_Controller : MonoBehaviour
     [SerializeField] float movementSpeed = 10;
     [SerializeField] Camera minigame_2_camera;
     CharacterController characterController;
+    Rigidbody rigidBody;
     Vector3 input;
+
+    Quaternion rotationLock;
+    Vector3 positionLock;
 
     // Start is called before the first frame update
     void Start()
     {
+        rotationLock = transform.rotation;
+        positionLock = transform.position;
         characterController = GetComponent<CharacterController>();
+        rigidBody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -24,6 +31,9 @@ public class Cube_Player_Controller : MonoBehaviour
         }
         GatherInput();
         Move();
+
+        transform.position = new Vector3(transform.position.x, positionLock.y, positionLock.z);
+        transform.rotation = rotationLock;
     }
 
     void GatherInput()
@@ -33,8 +43,10 @@ public class Cube_Player_Controller : MonoBehaviour
 
     private void Move()
     {
-        input.y = 0;
-        characterController.Move(input * movementSpeed * Time.deltaTime);
+        //input.y = 0;
+        //characterController.Move(input * movementSpeed * Time.deltaTime);
+        rigidBody.AddForce(input * movementSpeed * Time.deltaTime * 100000000000);
+
     }
 
 

@@ -840,7 +840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f22ce5f2ab823847b1e53d8ed5d030c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 10
+  movementSpeed: 20
   minigame_2_camera: {fileID: 3542676335969235926}
 --- !u!143 &5276855778382010343
 CharacterController:

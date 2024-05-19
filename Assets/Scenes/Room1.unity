@@ -8157,6 +8157,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 120
       objectReference: {fileID: 0}
+    - target: {fileID: 5287013807584244164, guid: b95619dcebe4033429c00a89d2632559, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.43
+      objectReference: {fileID: 0}
     - target: {fileID: 5595800601268812352, guid: b95619dcebe4033429c00a89d2632559, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16
@@ -8201,6 +8205,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 120
       objectReference: {fileID: 0}
+    - target: {fileID: 6011617876439580417, guid: b95619dcebe4033429c00a89d2632559, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.31
+      objectReference: {fileID: 0}
     - target: {fileID: 7557334676028616624, guid: b95619dcebe4033429c00a89d2632559, type: 3}
       propertyPath: m_Name
       value: Minigame_2 1
@@ -8213,6 +8221,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5106737241407908774, guid: b95619dcebe4033429c00a89d2632559, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1649711109}
     - targetCorrespondingSourceObject: {fileID: 7660073707024472970, guid: b95619dcebe4033429c00a89d2632559, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8694452895674500659}
@@ -15745,6 +15756,38 @@ Transform:
   - {fileID: 1705694557}
   m_Father: {fileID: 14637983}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1649711102 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5106737241407908774, guid: b95619dcebe4033429c00a89d2632559, type: 3}
+  m_PrefabInstance: {fileID: 794747135}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1649711109
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649711102}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 124
+  m_CollisionDetection: 0
 --- !u!1 &1655440475
 GameObject:
   m_ObjectHideFlags: 0
