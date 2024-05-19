@@ -23,7 +23,6 @@ public class WayPointScript : MonoBehaviour
         {
             speed *= -1;
         }
-
         transform.Translate(transform.forward * speed * Time.deltaTime);
 
     }
