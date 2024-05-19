@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class M_Minigame_2_System : M_Systems
 {
-    [SerializeField] M_Objectpool poolP;
-    [SerializeField] M_Objectpool poolK;
+    [SerializeField] M_Objectpool poolBanan;
+    [SerializeField] M_Objectpool poolBurger;
+    [SerializeField] M_Objectpool poolCherry;
+    [SerializeField] M_Objectpool poolOlive;
+    [SerializeField] M_Objectpool poolHotDog;
+    [SerializeField] M_Objectpool poolWatermelon;
+    [SerializeField] M_Objectpool poolCheese;
     [SerializeField] int amountEnemies;
     [SerializeField] float spawnTime = 2f;
     Vector3 playerPosition;
@@ -18,8 +23,13 @@ public class M_Minigame_2_System : M_Systems
 
     void Start()
     {
-        poolP.CreateObjectPool(amountEnemies);
-        poolK.CreateObjectPool(amountEnemies/4);
+        poolBanan.CreateObjectPool(amountEnemies);
+        poolBurger.CreateObjectPool(amountEnemies/4);
+        poolCherry.CreateObjectPool(amountEnemies/4);
+        poolOlive.CreateObjectPool(amountEnemies/4);
+        poolHotDog.CreateObjectPool(amountEnemies/4);
+        poolWatermelon.CreateObjectPool(amountEnemies/4);
+        poolCheese.CreateObjectPool(amountEnemies/4);
         enemies = new List<M_Enemy>();
     }
     void Update()
@@ -33,13 +43,33 @@ public class M_Minigame_2_System : M_Systems
         {
 
             M_Enemy enemy;
-            if (Random.Range(0, 10) == 1)
+            if (Random.Range(0, 6) == 0)
             {
-                enemy = poolK.GetObject();
+                enemy = poolBanan.GetObject();
+            }
+            else if (Random.Range(0, 6) == 1)
+            {
+                enemy = poolBurger.GetObject();
+            }
+            else if (Random.Range(0, 6) == 2)
+            {
+                enemy = poolCherry.GetObject();
+            }
+            else if (Random.Range(0, 6) == 3)
+            {
+                enemy = poolHotDog.GetObject();
+            }
+            else if (Random.Range(0, 6) == 4)
+            {
+                enemy = poolOlive.GetObject();
+            }
+            else if (Random.Range(0, 6) == 5)
+            {
+                enemy = poolCheese.GetObject();
             }
             else
             {
-                enemy = poolP.GetObject();
+                enemy = poolWatermelon.GetObject();
             }
 
             enemies.Add(enemy);
@@ -52,17 +82,39 @@ public class M_Minigame_2_System : M_Systems
         }
 
 
+        //CheckForHealth();
+
         for (int i = enemies.Count - 1; i >= 0; i--)
         {
             if (enemies[i].health <= 0)
             {
-                if (enemies[i] is M_EnemyK)
+                if (enemies[i] is Minigame_2_Enemy_Banan)
                 {
-                    poolK.ReleaseObject(enemies[i]);
+                    poolBanan.ReleaseObject(enemies[i]);
                 }
-                else if (enemies[i] is M_EnemyP)
+                else if (enemies[i] is Minigame_2_Enemy_Burger)
                 {
-                    poolP.ReleaseObject(enemies[i]);
+                    poolBurger.ReleaseObject(enemies[i]);
+                }
+                else if (enemies[i] is Minigame_2_Enemy_Cheese)
+                {
+                    poolCheese.ReleaseObject(enemies[i]);
+                }
+                else if (enemies[i] is Minigame_2_Enemy_Cherry)
+                {
+                    poolCherry.ReleaseObject(enemies[i]);
+                }
+                else if (enemies[i] is Minigame_2_Enemy_HotDog)
+                {
+                    poolHotDog.ReleaseObject(enemies[i]);
+                }
+                else if (enemies[i] is Minigame_2_Enemy_Olive)
+                {
+                    poolOlive.ReleaseObject(enemies[i]);
+                }
+                else if (enemies[i] is Minigame_2_Enemy_Watermelon)
+                {
+                    poolWatermelon.ReleaseObject(enemies[i]);
                 }
 
                 enemies.RemoveAt(i);
@@ -87,13 +139,33 @@ public class M_Minigame_2_System : M_Systems
 
         for (int i = enemies.Count - 1; i >= 0; i--)
         {
-            if (enemies[i] is M_EnemyK)
+            if (enemies[i] is Minigame_2_Enemy_Banan)
             {
-                poolK.ReleaseObject(enemies[i]);
+                poolBanan.ReleaseObject(enemies[i]);
             }
-            else if (enemies[i] is M_EnemyP)
+            else if (enemies[i] is Minigame_2_Enemy_Burger)
             {
-                poolP.ReleaseObject(enemies[i]);
+                poolBurger.ReleaseObject(enemies[i]);
+            }
+            else if (enemies[i] is Minigame_2_Enemy_Cheese)
+            {
+                poolCheese.ReleaseObject(enemies[i]);
+            }
+            else if (enemies[i] is Minigame_2_Enemy_Cherry)
+            {
+                poolCherry.ReleaseObject(enemies[i]);
+            }
+            else if (enemies[i] is Minigame_2_Enemy_HotDog)
+            {
+                poolHotDog.ReleaseObject(enemies[i]);
+            }
+            else if (enemies[i] is Minigame_2_Enemy_Olive)
+            {
+                poolOlive.ReleaseObject(enemies[i]);
+            }
+            else if (enemies[i] is Minigame_2_Enemy_Watermelon)
+            {
+                poolWatermelon.ReleaseObject(enemies[i]);
             }
             enemies.Remove(enemies[i]);
 
@@ -107,5 +179,7 @@ public class M_Minigame_2_System : M_Systems
 
         shouldSpawn = true;
     }
+
+    
 
 }

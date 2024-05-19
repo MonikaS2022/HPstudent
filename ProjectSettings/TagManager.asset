@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Non Navmesh
   - Sibling
+  - Bowl
+  - M2_Plane
   layers:
   - Default
   - TransparentFX
