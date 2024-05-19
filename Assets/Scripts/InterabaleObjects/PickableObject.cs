@@ -15,6 +15,7 @@ public class PickableObject : MonoBehaviour, IInteractable
         {
             Debug.Log("obg is added");
             this.gameObject.SetActive(false);
+            
         }
         else
         {

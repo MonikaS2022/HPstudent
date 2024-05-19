@@ -18,7 +18,7 @@ public class CloneFactory : MonoBehaviour
         {
             instance = this;
         }
-       ;
+       
     }
     public IClonable GetClone(IClonable sample)
     {

@@ -27,13 +27,27 @@ public class InventoryCanvas : MonoBehaviour
         placeHolder1.text = "nothing yet";
         placeHolder2.text = "nothing yet";
         amount.text = Inventory.Instance.maxInventories.ToString();
-        Debug.Log(Inventory.Instance.maxInventories.ToString());
+        //Debug.Log(Inventory.Instance.maxInventories.ToString());
     }
 
 
 
     void UpdateInventoryUI()
     {
+        
+        if(Inventory.Instance.GetName(0) == string.Empty)
+        {
+            placeHolder1.text = "nothing yet";
+            img1.sprite = null;
+            img1.enabled = false;
+        }
+        if (Inventory.Instance.GetName(1) == string.Empty)
+        {
+            placeHolder2.text = "nothing yet";
+            img2.sprite = null;
+            img2.enabled = false;
+        }
+
         if (Inventory.Instance.GetName(0) != string.Empty)
         {
             placeHolder1.text = Inventory.Instance.GetName(0);

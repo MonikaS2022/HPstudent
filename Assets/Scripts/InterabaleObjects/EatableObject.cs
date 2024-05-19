@@ -9,5 +9,7 @@ public class EatableObject : MonoBehaviour, IInteractable
   public void Interact()
   {
         Survival.Instance.IncreaseHunger(50);
-  }
+        this.gameObject.SetActive(false);
+    }
 }
+
