@@ -39,8 +39,6 @@ public class M_Minigame_2_System : M_Systems
             return;
         }
 
-        Debug.Log(shouldSpawn.ToString() + ", "+ enemies.Count + ", "+ amountEnemies);
-
         if (shouldSpawn && enemies.Count < amountEnemies + (amountEnemies / 4))
         {
             shouldSpawn = false;
