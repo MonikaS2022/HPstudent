@@ -3365,6 +3365,13 @@ MonoBehaviour:
   depletionRateKnowledge: 1.5
   currentKnowledge: 100
   maxKnowledge: 100
+  minimumHunger: 70
+  minimumPleasure: 70
+  minimumKnowledge: 70
+  loseValueHunger: 0
+  loseValuePleasure: 0
+  loseValueKnowledge: 50
+  instantLoseValueKnowledge: 50
   inMinigame: 0
   inMinigame1: 0
   inMinigame2: 0

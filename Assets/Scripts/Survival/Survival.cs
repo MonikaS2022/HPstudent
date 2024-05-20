@@ -27,6 +27,18 @@ public class Survival : MonoBehaviour
     [SerializeField] protected float depletionRateKnowledge = 1f;
     [SerializeField] protected float currentKnowledge = 100;
     [SerializeField] protected float maxKnowledge = 100;
+
+    [Header("Minimum For Win")]
+    [SerializeField] protected float minimumHunger = 70;
+    [SerializeField] protected float minimumPleasure = 70;
+    [SerializeField] protected float minimumKnowledge = 70;   
+    
+    [Header("Loss Values")]
+    [SerializeField] protected float loseValueHunger = 0;
+    [SerializeField] protected float loseValuePleasure = 0;
+    [SerializeField] protected float loseValueKnowledge = 50;
+    [SerializeField] protected float instantLoseValueKnowledge = 50;
+
     public static Survival Instance { get; private set; }
 
     public bool inMinigame = false;
@@ -143,20 +155,20 @@ public class Survival : MonoBehaviour
     public void LoseGame()
     {
         //check which stat is below zero and print it out.
-        if (currentHunger <= 0)
+        if (currentHunger <= loseValueHunger)
         {
             //4 in the list
             endGameScreens[4].gameObject.SetActive(true);
         }
-        else if (currentPleasure <= 0)
+        else if (currentPleasure <= loseValuePleasure)
         {
             endGameScreens[5].gameObject.SetActive(true);
 
         }
-        //else if (currentKnowledge <= 0)
-        //{
-        //    endGameScreens[6].gameObject.SetActive(true);
-        //}
+        else if (currentKnowledge <= instantLoseValueKnowledge)
+        {
+            endGameScreens[6].gameObject.SetActive(true);
+        }
         else
             Debug.Log("You lost the game! BUT WE DONT KNOW WHY!");
 
@@ -166,23 +178,23 @@ public class Survival : MonoBehaviour
 
     public void EndGame()
     {
-        if (currentKnowledge <= 50)
+        if (currentKnowledge <= loseValueKnowledge)
         {
             endGameScreens[6].gameObject.SetActive(true);
         }
-        else if (currentKnowledge >= 75 && currentHunger >= 75 && currentPleasure >= 75)
+        else if (currentKnowledge >= minimumKnowledge && currentHunger >= minimumHunger && currentPleasure >= minimumPleasure)
         {
             endGameScreens[0].gameObject.SetActive(true);
         }
-        else if (currentKnowledge >= 75)
+        else if (currentKnowledge >= minimumKnowledge)
         {
             endGameScreens[3].gameObject.SetActive(true);
         }
-        else if (currentPleasure >= 75)
+        else if (currentPleasure >= minimumPleasure)
         {
             endGameScreens[1].gameObject.SetActive(true);
         }    
-        else if (currentHunger >= 75)
+        else if (currentHunger >= minimumHunger)
         {
             endGameScreens[2].gameObject.SetActive(true);
         }
