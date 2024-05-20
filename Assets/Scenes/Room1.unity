@@ -3090,6 +3090,7 @@ MonoBehaviour:
   inMinigame1: 0
   inMinigame2: 0
   inMinigame3: 0
+  gameOver: 0
   endGameScreens:
   - {fileID: 681667502}
   - {fileID: 681667501}
@@ -7026,6 +7027,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1353471407205275818, guid: bc8254c5e54838546bc2ce35aba0fa41, type: 3}
+      propertyPath: m_text
+      value: You aced your exams, without losing yourself in the process. Summer
+        will require some recovery but you will be happy with what you accomplished.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2058173563594492292, guid: bc8254c5e54838546bc2ce35aba0fa41, type: 3}
+      propertyPath: m_text
+      value: You had some gourmet smoothies and instant noodles during the week.
+        You managed to stay happy and healthy all whilst juggling exam prep.
+      objectReference: {fileID: 0}
     - target: {fileID: 2759577221687707757, guid: bc8254c5e54838546bc2ce35aba0fa41, type: 3}
       propertyPath: m_Name
       value: End Screens

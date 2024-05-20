@@ -50,6 +50,12 @@ public class DayNighCycle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if 7 days has passed call end game in survival
+        if (days >= 8)
+        {
+            Survival.Instance.EndGame();
+        }
+
         _currentCyckelTime = (_currentCyckelTime + Time.deltaTime*0.5f) % _cycleLenght;
         if(Mathf.Abs(_currentCyckelTime - _nextMarkTime) < _TIME_CHECK_EPSILON)
         {
