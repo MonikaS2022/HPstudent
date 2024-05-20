@@ -10,6 +10,7 @@ public class MoveState : BaseState
     [SerializeField] Transform[] waypoints;
     Vector3 destination;
     int currentIndex = 0;
+    int tempValue = 0;
 
     NavMeshAgent navMeshAgent;
 
@@ -28,7 +29,8 @@ public class MoveState : BaseState
     {
         action = GetComponent<ActionState>();
         navMeshAgent = GetComponent<NavMeshAgent>();
-
+        currentIndex = Random.Range(0, waypoints.Length);
+        tempValue = Random.Range(0, waypoints.Length);
     }
 
     public override void Enter()
@@ -41,12 +43,21 @@ public class MoveState : BaseState
     {
         base.UpdateLogic();
 
+
         Transform waypoint = waypoints[currentIndex];
         if (!hasDestination)
         {
             destination = waypoint.position;
             navMeshAgent.SetDestination(waypoint.position);
             hasDestination = true;
+
+            tempValue = Random.Range(0, waypoints.Length);
+            if (currentIndex == tempValue)
+            {
+                currentIndex = Random.Range(0, waypoints.Length);
+            }
+            else
+                currentIndex = tempValue;
 
         }
 
@@ -64,7 +75,7 @@ public class MoveState : BaseState
             return action;
 
         }
-        else 
+        else
             return null;
     }
 }

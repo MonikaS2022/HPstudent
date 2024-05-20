@@ -35,19 +35,21 @@ public class ActionState : BaseState
 
         if (acting)
         {
+
             actionCounter += Time.deltaTime;
-            if(actionCounter >= actionTime)
+            if (actionCounter >= actionTime)
             {
                 acting = false;
                 actionCounter = 0f;
+                actionTime = Random.Range(1, 3);
             }
         }
     }
 
     public override BaseState CheckTransition()
-    { 
+    {
         if (acting) return null;
-       
+
         else return moveState;
     }
 
