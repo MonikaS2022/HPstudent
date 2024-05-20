@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class M_EnemyP : M_Enemy
 {
@@ -8,12 +9,6 @@ public class M_EnemyP : M_Enemy
     public override void OnDeath()
     {
         Survival.Instance.IncreasePleasure(increasePleasure);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        base.Start();
     }
 
     // Update is called once per frame

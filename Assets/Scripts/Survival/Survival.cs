@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,7 +9,7 @@ public class Survival : MonoBehaviour
 
 
     // Different things to mange. Can be adjusted in the editor!
-   
+
 
     // To call this singleton class from another script you just go Survival.Instance then what you want
     // For example Survival.Instance.CurrentKnowledge to ge the current knowledge!
@@ -35,6 +34,8 @@ public class Survival : MonoBehaviour
     public bool inMinigame1 = false;
     public bool inMinigame2 = false;
     public bool inMinigame3 = false;
+
+    public bool gameOver = false;
 
     [SerializeField] List<Canvas> endGameScreens = new List<Canvas>();
 
@@ -80,6 +81,10 @@ public class Survival : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gameOver)
+        {
+            return;
+        }
 
         // Slowly ticking each down to zero and stopts when it gets to just below zero.
 
@@ -91,8 +96,8 @@ public class Survival : MonoBehaviour
         if (currentHunger > 0)
         {
             currentHunger -= depletionRateHunger * Time.deltaTime;
-        }      
-        
+        }
+
         if (currentKnowledge > 0)
         {
             currentKnowledge -= depletionRateKnowledge * Time.deltaTime;
@@ -148,12 +153,41 @@ public class Survival : MonoBehaviour
             endGameScreens[5].gameObject.SetActive(true);
 
         }
-        else if (currentKnowledge <= 0)
+        //else if (currentKnowledge <= 0)
+        //{
+        //    endGameScreens[6].gameObject.SetActive(true);
+        //}
+        else
+            Debug.Log("You lost the game! BUT WE DONT KNOW WHY!");
+
+
+        gameOver = true;
+    }
+
+    public void EndGame()
+    {
+        if (currentKnowledge <= 50)
         {
             endGameScreens[6].gameObject.SetActive(true);
         }
-        else
-            Debug.Log("You lost the game! BUT WE DONT KNOW WHY!");
+        else if (currentKnowledge >= 75 && currentHunger >= 75 && currentPleasure >= 75)
+        {
+            endGameScreens[0].gameObject.SetActive(true);
+        }
+        else if (currentKnowledge >= 75)
+        {
+            endGameScreens[3].gameObject.SetActive(true);
+        }
+        else if (currentPleasure >= 75)
+        {
+            endGameScreens[1].gameObject.SetActive(true);
+        }    
+        else if (currentHunger >= 75)
+        {
+            endGameScreens[2].gameObject.SetActive(true);
+        }
+
+        gameOver = true;
     }
 
 }
