@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using static UnityEngine.GraphicsBuffer;
 
 public abstract class M_Enemy : MonoBehaviour
 {
@@ -19,6 +16,13 @@ public abstract class M_Enemy : MonoBehaviour
     {
         Reset();
         player = GameObject.FindGameObjectWithTag("M_Player");
+
+        if (this.CompareTag("Enemy"))
+        {
+            TransitionTo(new ChaseState(this));
+            agent = GetComponent<NavMeshAgent>();
+            agent.speed = speed;
+        }
     }
 
     // Update is called once per frame
@@ -44,7 +48,7 @@ public abstract class M_Enemy : MonoBehaviour
 
     public void Chasing()
     {
-        agent.SetDestination(player.transform.position);
+            agent.SetDestination(player.transform.position);
     }
 
     public void TakeDamage(float damage)
@@ -58,7 +62,7 @@ public abstract class M_Enemy : MonoBehaviour
 
     public abstract void OnDeath();
 
-   protected abstract class State
+    protected abstract class State
     {
         public virtual void Enter() { }
         public virtual void Update() { }
@@ -105,7 +109,8 @@ public abstract class M_Enemy : MonoBehaviour
             stateMachine.Chasing();
             base.Update();
         }
-    }protected class FallState : State
+    }
+    protected class FallState : State
     {
         public FallState(M_Enemy stateMachine) : base(stateMachine)
         {
