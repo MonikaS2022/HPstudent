@@ -15,8 +15,8 @@ public class QuizManager : MonoBehaviour
 
     public int currentQuestion;
 
-    public GameObject rightButton;
-    public GameObject wrongButton;
+    //public GameObject rightButton;
+    //public GameObject wrongButton;
 
 
     void GenereteQuestion()
@@ -67,8 +67,8 @@ public class QuizManager : MonoBehaviour
         GenereteQuestion();
         canvas.enabled = true;
         quizCam.enabled = true;
-        rightButton.gameObject.SetActive(false);
-        wrongButton.gameObject.SetActive(false);
+        //rightButton.gameObject.SetActive(false);
+        //wrongButton.gameObject.SetActive(false);
 
     }
 

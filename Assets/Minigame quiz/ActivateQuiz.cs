@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ActivateQuiz : MonoBehaviour
 {
-    // Start is called before the first frame update
+
     [SerializeField] QuizManager qm;
     bool inQuiz = false; 
 
@@ -17,7 +17,7 @@ public class ActivateQuiz : MonoBehaviour
             qm.StartGame();
             inQuiz = true; 
         }
-        else if(Input.GetKeyDown(KeyCode.A) && inQuiz == true)
+        else if(Input.GetKeyDown(KeyCode.M) && inQuiz == true)
         {
             qm.EndGame();
             inQuiz = false; 
