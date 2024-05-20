@@ -36,6 +36,19 @@ public class Survival : MonoBehaviour
     public bool inMinigame2 = false;
     public bool inMinigame3 = false;
 
+    [SerializeField] List<Canvas> endGameScreens = new List<Canvas>();
+
+    /* Order of List:
+     * 0 WIN TOTAL
+     * 1 WIN Happiness
+     * 2 WIN Hunger
+     * 3 WIN Knowledge
+     * 4 LOSE Hunger
+     * 5 Lose Happiness
+     * 6 Lose Knowledge
+     */
+
+
     public float CurrentPleasure
     {
         get { return currentPleasure; }
@@ -84,6 +97,12 @@ public class Survival : MonoBehaviour
         {
             currentKnowledge -= depletionRateKnowledge * Time.deltaTime;
         }
+
+        //if any of the stats are below zero, the game is over.
+        if (currentHunger <= 0 || currentKnowledge <= 0 || currentPleasure <= 0)
+        {
+            LoseGame();
+        }
     }
 
     public void IncreaseHunger(float increase)
@@ -114,6 +133,27 @@ public class Survival : MonoBehaviour
         {
             currentPleasure = maxPleasure;
         }
+    }
+
+    public void LoseGame()
+    {
+        //check which stat is below zero and print it out.
+        if (currentHunger <= 0)
+        {
+            //4 in the list
+            endGameScreens[4].gameObject.SetActive(true);
+        }
+        else if (currentPleasure <= 0)
+        {
+            endGameScreens[5].gameObject.SetActive(true);
+
+        }
+        else if (currentKnowledge <= 0)
+        {
+            endGameScreens[6].gameObject.SetActive(true);
+        }
+        else
+            Debug.Log("You lost the game! BUT WE DONT KNOW WHY!");
     }
 
 }
