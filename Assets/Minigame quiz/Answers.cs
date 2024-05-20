@@ -16,7 +16,7 @@ public class Answers : MonoBehaviour
         {
             //corr
             //qm.rightButton.gameObject.SetActive(true);
-            qm.correct();
+            qm.Correct();
             Debug.Log("Rätt");
             Survival.Instance.IncreaseKnowledge(20);
         }
@@ -24,7 +24,7 @@ public class Answers : MonoBehaviour
         {
             //false
             //qm.wrongButton.gameObject.SetActive(true);
-            qm.correct();
+            qm.Correct();
             Debug.Log("Fel");
         }
     }

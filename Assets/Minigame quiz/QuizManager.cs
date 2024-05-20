@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class QuizManager : MonoBehaviour
+public class QuizManager : M_Systems
 {
     [SerializeField] Camera quizCam;
     [SerializeField] Canvas canvas;
@@ -31,21 +31,18 @@ public class QuizManager : MonoBehaviour
 
         SetAnswer();
 
-        if (qna.Count <= 0)
-        {
-            //end game
-            EndGame();
-        }
+        //if (qna.Count <= 0)
+        //{
+        //    //end game
+        //    //EndGame();
+        //}
 
     }
 
 
-    public void correct()
+    public void Correct()
     {
-        
         GenereteQuestion();
-
-
     }
 
     void SetAnswer()
@@ -62,20 +59,18 @@ public class QuizManager : MonoBehaviour
         }
     }
 
-    public void StartGame()
+    public override void StartGame()
     {
-        GenereteQuestion();
+        Survival.Instance.inMinigame3 = true;
         canvas.enabled = true;
-        quizCam.enabled = true;
-        //rightButton.gameObject.SetActive(false);
-        //wrongButton.gameObject.SetActive(false);
-
+        GenereteQuestion();
     }
 
-    public void EndGame()
+    public override void StopGame()
     {
+        Survival.Instance.inMinigame3 = false;
         canvas.enabled = false;
-        quizCam.enabled = false;
+
     }
 
 }
