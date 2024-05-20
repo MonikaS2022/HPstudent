@@ -2885,7 +2885,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You where to hungry to kee going with the week. You gave up on schoolwork
+  m_text: You were too hungry to keep going with the week. You gave up on schoolwork
     and went to stay with your parents for a few days, where at the very least you
     will get some warm meals.
   m_isRightToLeft: 0
