@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 
 public class M_EnemyK : M_Enemy
@@ -15,6 +16,9 @@ public class M_EnemyK : M_Enemy
     void Start()
     {
         base.Start();
+        agent = GetComponent<NavMeshAgent>();
+        agent.speed = speed;
+        TransitionTo(new ChaseState(this));
     }
 
     // Update is called once per frame

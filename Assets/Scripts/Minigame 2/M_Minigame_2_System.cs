@@ -43,6 +43,8 @@ public class M_Minigame_2_System : M_Systems
 
         if (shouldSpawn && enemies.Count < amountEnemies + (amountEnemies / 4))
         {
+            shouldSpawn = false;
+            StartCoroutine(SpawnTimer(spawnTimer));
 
             M_Enemy enemy;
             if (Random.Range(0, 6) == 0)
@@ -79,8 +81,6 @@ public class M_Minigame_2_System : M_Systems
 
             enemy.transform.position = spawnPoint;
             enemy.gameObject.SetActive(true);
-            shouldSpawn = false;
-            StartCoroutine(SpawnTimer(spawnTimer));
         }
 
 

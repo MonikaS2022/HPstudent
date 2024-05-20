@@ -13,6 +13,8 @@ public class Minigame_2_Enemy_Banan : M_Enemy
     void Start()
     {
         base.Start();
+
+        
     }
 
     // Update is called once per frame

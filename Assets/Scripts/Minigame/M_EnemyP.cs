@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class M_EnemyP : M_Enemy
 {
@@ -14,6 +15,9 @@ public class M_EnemyP : M_Enemy
     void Start()
     {
         base.Start();
+        agent = GetComponent<NavMeshAgent>();
+        agent.speed = speed;
+        TransitionTo(new FallState(this));
     }
 
     // Update is called once per frame

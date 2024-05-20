@@ -18,11 +18,7 @@ public abstract class M_Enemy : MonoBehaviour
     public void Start()
     {
         Reset();
-        agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("M_Player");
-        agent.speed = speed;
-
-        TransitionTo(new ChaseState(this));
     }
 
     // Update is called once per frame
@@ -39,7 +35,7 @@ public abstract class M_Enemy : MonoBehaviour
         health = maxHealth;
     }
 
-    void TransitionTo(State state)
+    protected void TransitionTo(State state)
     {
         //Debug.Log($"Context: Transition to {state.GetType().Name}.");
         this.state = state;
@@ -62,7 +58,7 @@ public abstract class M_Enemy : MonoBehaviour
 
     public abstract void OnDeath();
 
-    abstract class State
+   protected abstract class State
     {
         public virtual void Enter() { }
         public virtual void Update() { }
@@ -74,7 +70,7 @@ public abstract class M_Enemy : MonoBehaviour
             this.stateMachine = stateMachine;
         }
     }
-    class AttackingState : State
+    protected class AttackingState : State
     {
         public AttackingState(M_Enemy stateMachine) : base(stateMachine)
         {
@@ -93,7 +89,7 @@ public abstract class M_Enemy : MonoBehaviour
     }
 
 
-    class ChaseState : State
+    protected class ChaseState : State
     {
         public ChaseState(M_Enemy stateMachine) : base(stateMachine)
         {
@@ -107,6 +103,21 @@ public abstract class M_Enemy : MonoBehaviour
         public override void Update()
         {
             stateMachine.Chasing();
+            base.Update();
+        }
+    }protected class FallState : State
+    {
+        public FallState(M_Enemy stateMachine) : base(stateMachine)
+        {
+        }
+
+        public override void Enter()
+        {
+            base.Enter();
+        }
+
+        public override void Update()
+        {
             base.Update();
         }
     }
